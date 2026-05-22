@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simuladores Web</title>
+    <link rel="stylesheet" href="C:\Users\grego70\Desktop\index.html\style.css">
+</head>
+<body>
+    <header>
+        <h1>Desafío Técnico: Simuladores Interactivos</h1>
+    </header>
+
+    <main class="container">
+        <section class="card">
+            <h2>1. Ley de Enfriamiento (Calor)</h2>
+            <form id="form-calor" onsubmit="event.preventDefault(); calcularCalor();">
+                <div class="form-group">
+                    <label for="t0">Temperatura Inicial (T0):</label>
+                    <input type="number" id="t0" value="120" step="any" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ts">Temperatura del Entorno (Ts):</label>
+                    <input type="number" id="ts" value="38" step="any" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="k">Constante (k):</label>
+                    <input type="number" id="k" value="0.45" step="any" min="0" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="t_time">Tiempo en horas (t):</label>
+                    <input type="number" id="t_time" value="3" step="any" min="0" required>
+                </div>
+                
+                <button type="submit" class="btn">Calcular</button>
+            </form>
+            <div id="resultado-calor" class="result-box hidden"></div>
+        </section>
+
+        <section class="card">
+            <h2>2. Calculador de Combinaciones</h2>
+            <form id="form-combinaciones" onsubmit="event.preventDefault(); calcularCombinacionesTotales();">
+                <h3>Grupo 1</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="n1">Elementos (n1):</label>
+                        <input type="number" id="n1" value="59" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="r1">Seleccionados (r1):</label>
+                        <input type="number" id="r1" value="5" min="0" required>
+                    </div>
+                </div>
+
+                <h3>Grupo 2</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="n2">Elementos (n2):</label>
+                        <input type="number" id="n2" value="35" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="r2">Seleccionados (r2):</label>
+                        <input type="number" id="r2" value="1" min="0" required>
+                    </div>
+                </div>
+                
+                <button type="submit" class="btn">Calcular Combinaciones</button>
+            </form>
+            <div id="resultado-combinaciones" class="result-box hidden"></div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

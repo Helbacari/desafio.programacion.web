@@ -1,0 +1,223 @@
+/* --- Reseteo Estricto del Box Model --- */
+* {
+    box-sizing: border-box; /* Control riguroso de márgenes, rellenos y bordes [cite: 35] */
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+/* --- Variables de Diseño Moderno (Modo Oscuro Sutil) --- */
+:root {
+    --bg-gradient: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-main: #f8fafc;
+    --text-muted: #94a3b8;
+    
+    /* Colores de acento */
+    --accent-blue: #38bdf8;
+    --accent-blue-hover: #0ea5e9;
+    --accent-green: #34d399;
+    --accent-green-border: rgba(52, 211, 153, 0.2);
+    --accent-red: #f87171;
+    --accent-red-border: rgba(248, 113, 113, 0.2);
+}
+
+/* --- Estilos del Cuerpo --- */
+body {
+    background: var(--bg-gradient);
+    min-height: 100vh;
+    color: var(--text-main);
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* --- Encabezado --- */
+header {
+    text-align: center;
+    margin-bottom: 40px;
+    max-width: 800px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    background: linear-gradient(to right, #38bdf8, #818cf8);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+header p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+}
+
+/* --- Contenedor Principal (Grid Responsivo) --- */
+.container {
+    width: 100%;
+    max-width: 1100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 30px;
+    padding-bottom: 40px;
+}
+
+/* --- Tarjetas Estilo Glassmorphism --- */
+.card {
+    background: var(--card-bg);
+    backdrop-filter: blur(12px); /* Efecto de desenfoque de fondo */
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4);
+    border-color: rgba(56, 189, 248, 0.2);
+}
+
+.card h2 {
+    font-size: 1.4rem;
+    color: var(--accent-blue);
+    margin-bottom: 20px;
+    font-weight: 700;
+    letter-spacing: -0.025em;
+}
+
+.card h3 {
+    font-size: 1rem;
+    color: #e2e8f0;
+    margin: 20px 0 10px 0;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+}
+
+/* --- Formularios y Box Model Organizado [cite: 10] --- */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    margin-bottom: 6px;
+}
+
+input {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 12px 14px;
+    color: var(--text-main);
+    font-size: 1rem;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--accent-blue);
+    box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.15);
+    background: rgba(15, 23, 42, 0.8);
+}
+
+/* Quitar flechas nativas en inputs numéricos por estética */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* --- Botones Estilizados --- */
+.btn {
+    width: 100%;
+    background: linear-gradient(135deg, var(--accent-blue) 0%, #2563eb 100%);
+    color: #ffffff;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 6px -1px rgba(56, 189, 248, 0.2);
+    transition: all 0.2s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(135deg, var(--accent-blue-hover) 0%, #1d4ed8 100%);
+    box-shadow: 0 10px 15px -3px rgba(56, 189, 248, 0.3);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(1px);
+}
+
+/* --- Bloques de Resultados Dinámicos (Realce Visual [cite: 35]) --- */
+.result-box {
+    margin-top: 25px;
+    padding: 16px;
+    border-radius: 8px;
+    font-size: 1rem;
+    line-height: 1.5;
+    animation: slideUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.result-success {
+    background-color: rgba(52, 211, 153, 0.1);
+    border: 1px solid var(--accent-green-border);
+    color: #34d399;
+}
+
+.result-error {
+    background-color: rgba(248, 113, 113, 0.1);
+    border: 1px solid var(--accent-red-border);
+    color: #f87171;
+}
+
+.hidden {
+    display: none;
+}
+
+/* --- Animación de Entrada --- */
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Ajustes Responsivos para Pantallas Pequeñas --- */
+@media (max-width: 480px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+    .card {
+        padding: 20px;
+    }
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+}
